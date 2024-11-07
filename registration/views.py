@@ -42,7 +42,7 @@ class ParcelViewSet(mixins.CreateModelMixin,
         parcel = serializer.save(session_id=session_id)
         response = Response({'id': parcel.id}, status=status.HTTP_201_CREATED)
         if not request.COOKIES.get('session_id'):
-            response.set_cookie('session_id', session_id)  # Устанавливаем cookie, если его нет
+            response.set_cookie('session_id', session_id)
 
         return response
 
